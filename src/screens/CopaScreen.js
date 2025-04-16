@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, ImageBackground, Image } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 import { copa } from '../data';
 
 const CopaScreen = () => {
   return (
-    <View style={styles.container}>
+    
+    <ImageBackground 
+      source={{ uri: 'https://forbes.com.br/wp-content/uploads/2022/04/Life_Catar-hoteis-copa-do-mundo.jpg' }}
+      style={styles.container}
+    >
+
       <Card style={styles.card}>
         <Card.Content>
           <Image source={{ uri: copa.imagem }} style={styles.image} />
@@ -19,29 +24,37 @@ const CopaScreen = () => {
           <Text variant="bodyLarge">Vice-campeão: {copa.viceCampeao}</Text>
         </Card.Content>
       </Card>
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
+    justifyContent: 'flex-start', 
     padding: 10,
   },
+ 
   card: {
     margin: 10,
     elevation: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
   },
+
   image: {
     width: '100%',
     height: 200,
     resizeMode: 'contain',
     marginBottom: 15,
   },
+  
   title: {
     marginBottom: 15,
     textAlign: 'center',
     fontWeight: 'bold',
+    fontSize: 22,
+    color: '#000', 
   },
 });
 
